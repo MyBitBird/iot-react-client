@@ -1,0 +1,34 @@
+.container{
+   background: #2e719c;
+    position: fixed;
+    height:100%;
+    background-repeat: no-repeat;
+    background-position: 0px 50%;
+    margin: 0;
+    
+}
+.loginPanel
+{
+    padding: 20px;
+    margin-top: 10%;
+}
+.loginHeader{
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+   
+}
+.loginText{
+    text-align: center;
+    color: #888888;
+}
+.domainText{
+    color: #ffffff;
+    margin: 15px;
+    text-align: right;
+}
+.buttonsGrid
+{
+    margin-top:30px;
+}

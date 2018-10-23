@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import Auth from './containers/Auth/Auth';
+import classes from './App.css'
 
 
 class App extends Component {
   render() {
     return (
-      <div >
-        <h1>IOT React App!</h1>
-      </div>
+      
+       <Auth />
+    
     );
   }
 }
