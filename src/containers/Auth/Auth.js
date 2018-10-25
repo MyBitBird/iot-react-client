@@ -4,6 +4,9 @@ import TextField from '../../components/UI/TextField/TextField'
 import Aux from '../../utils/Auxilary'
 import classes from './Auth.css'
 import bg from '../../assets/images/bitbird.png'
+import {connect} from 'react-redux'
+import * as authActions from '../../store/actions/auth'
+
 class Auth extends Component {
     state={
         isInRegisterMode : false
@@ -53,4 +56,8 @@ class Auth extends Component {
     }
 }
 
-export default Auth;
+const mapDispathToProps=(dispatch)=>{
+    return { onLogin: (user) => dispatch(authActions.login(user))}
+}
+
+export default connect(null,mapDispathToProps)(Auth);
