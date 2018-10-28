@@ -4,10 +4,16 @@ import Layout from './components/Layout/Layout'
 import classes from './App.css'
 import {Switch,Route,Redirect,withRouter} from 'react-router-dom'
 import Dashboard from './containers/Dashboard/Dashboard';
-
+import Axios from 'axios';
+import * as authAction from './store/actions/auth'
 
 class App extends Component {
+  
+  
   render() {
+
+    if(localStorage.getItem('token')!=null)
+        authAction.checkToken();
     
     return (
       <Layout>

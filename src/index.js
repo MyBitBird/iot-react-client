@@ -6,11 +6,10 @@ import {BrowserRouter} from 'react-router-dom'
 import {applyMiddleware,createStore,combineReducers} from 'redux'
 import {Provider} from 'react-redux'
 import authReducer from './store/reducers/auth'
-import commonReducer from './store/reducers/common'
 import thunk from 'redux-thunk'
 import axios from 'axios'
 
-const reducers = combineReducers({ auth: authReducer, common: commonReducer});
+const reducers = combineReducers({ auth: authReducer});
 const store=createStore(reducers, applyMiddleware(thunk));
 
 axios.defaults.baseURL="http://localhost:5000/api/";
