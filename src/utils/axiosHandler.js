@@ -35,6 +35,10 @@ const axiosHandler = (WrappedComponent)=>{
                             case 403:
                                 message = "Access Denied!";
                                 break;
+                            case 400:
+                                //.Net core FluentValidator output
+                                message = "Bad Request: " + Object.entries(error.response.data).map(x=>x[1]).map(error=> `${error}`);
+                                break;
                             case 404:
                                 message = "Network Error";
                                 break;
