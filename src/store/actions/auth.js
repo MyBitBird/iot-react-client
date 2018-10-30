@@ -26,3 +26,12 @@ export const checkToken = () => {
         })
     }
 }
+
+export const onFieldChanged =(filed,value)=>{
+    return{
+        type:actionTypes.AUTH_FIELD_CHANGE,
+        filed:filed,
+        value: value
+    }
+}
+

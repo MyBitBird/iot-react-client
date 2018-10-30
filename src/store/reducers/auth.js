@@ -2,7 +2,12 @@ import * as actionTypes from '../actions/actionTypes'
 
 const initState = {
     isAuthenticated: false,
-    token: null
+    token: null,
+    username: '',
+    password: '',
+    rePassword: '',
+    name: '',
+    family: '',
 
 };
 
@@ -12,6 +17,8 @@ const resucer = (state = initState,action)=>{
     {
         case actionTypes.LOGIN:
             return {...state,isAuthenticated:true,token:action.token}
+        case actionTypes.AUTH_FIELD_CHANGE:
+            return {...state,[action.filed]:action.value}
         default :
             return state;            
     }
