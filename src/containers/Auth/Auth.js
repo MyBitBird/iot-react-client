@@ -21,7 +21,11 @@ class Auth extends Component {
             this.setState({errors: errors})
             return;
         } 
-        this.props.onLogin({ username: this.props.username, password: this.props.password })
+        if(!this.state.isInRegisterMode) this.props.onLogin({ username: this.props.username, password: this.props.password })
+        else this.props.onRegister({username: this.props.username,
+                                    password: this.props.password,
+                                    name: this.props.name,
+                                    family: this.props.family})
 
     } 
 
@@ -33,7 +37,6 @@ class Auth extends Component {
             if(this.props.password!=this.props.rePassword) error.push('Password & RePassword are not equal.')
             if(this.props.password.length<5) error.push('Password must be longer than 5 characters.')
         }
-        
         return error;
         
     }
@@ -56,7 +59,6 @@ class Auth extends Component {
                 <Grid xs={4} item>
                     <Paper className={classes.loginPanel}>
                         <Grid container>
-                          
                                 <Grid xs={12} item style={style} className={classes.loginHeader} />
                                 <Grid xs={12} item className={classes.loginText}><h3>Login</h3></Grid>
                                 <Grid xs={12} item className={classes.errorPanel}>
@@ -91,7 +93,8 @@ class Auth extends Component {
 const mapDispathToProps = dispatch => {
     return {
              onLogin: (user) => dispatch(authActions.login(user)),
-             onFieldChanged: (event) =>  dispatch(authActions.onFieldChanged(event.target.name,event.target.value))   
+             onFieldChanged: (event) =>  dispatch(authActions.onFieldChanged(event.target.name,event.target.value)) ,
+             onRegister: (user) => dispatch(authActions.onRegister(user))  
             }
 }
 

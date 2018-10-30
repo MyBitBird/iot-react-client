@@ -35,3 +35,12 @@ export const onFieldChanged =(filed,value)=>{
     }
 }
 
+export const onRegister=(user)=>{
+    return dispatch=>{
+        axios.post('users/SignUp',user).then(result=>{
+            dispatch(setLogin(result.token))
+
+        })
+    }
+}
+
