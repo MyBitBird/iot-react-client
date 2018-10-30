@@ -26,8 +26,9 @@ const axiosHandler = (WrappedComponent)=>{
                     let message = error.message;
                     if (error.response != null) {
                         switch (error.response.status) {
-                            case 502:
-                                message = error.response.data;
+                            case 400:
+                                //.Net core FluentValidator output to string
+                                message = "Bad Request: " + Object.entries(error.response.data).map(x => x[1]).map(error => `${error}`);
                                 break;
                             case 401:
                                 message = "Incorrect Username or Password!";
@@ -35,15 +36,14 @@ const axiosHandler = (WrappedComponent)=>{
                             case 403:
                                 message = "Access Denied!";
                                 break;
-                            case 400:
-                                //.Net core FluentValidator output
-                                message = "Bad Request: " + Object.entries(error.response.data).map(x=>x[1]).map(error=> `${error}`);
-                                break;
                             case 404:
                                 message = "Network Error";
                                 break;
                             case 500:
                                 message = "Oops! Server Error";
+                                break;
+                            case 502:
+                                message = error.response.data;
                                 break;
                             default:
                                 message = "Undefined Erro: " + error.response;

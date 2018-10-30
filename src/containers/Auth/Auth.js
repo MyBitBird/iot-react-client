@@ -16,11 +16,9 @@ class Auth extends Component {
     onSubmit = (event) => {
         event.preventDefault();
         const errors=this.formValidation();
-        if (errors.length>0)
-        {
-            this.setState({errors: errors})
-            return;
-        } 
+        this.setState({ errors: errors })
+        if (errors.length>0) return;
+        
         if(!this.state.isInRegisterMode) this.props.onLogin({ username: this.props.username, password: this.props.password })
         else this.props.onRegister({username: this.props.username,
                                     password: this.props.password,
