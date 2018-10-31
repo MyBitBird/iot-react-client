@@ -70,10 +70,10 @@ class Auth extends Component {
                                     this.state.isInRegisterMode ? registerFields : null
                                 }
                                 <Grid container >
-                                    <Grid xs={12} className={classes.buttonsGrid}>
+                                    <Grid xs={12} item className={classes.buttonsGrid}>
                                         <Button type='submit' fullWidth variant="contained" color="secondary" >{this.state.isInRegisterMode ? 'Register' : 'Login'}</Button>
                                     </Grid>
-                                    <Grid xs={12} className={classes.buttonsGrid}>
+                                    <Grid xs={12} item className={classes.buttonsGrid}>
                                         <Button onClick={this.toggleRegisterModeHandler} fullWidth color="primary" >{this.state.isInRegisterMode ? 'Login' : 'SignUp'}</Button>
                                     </Grid>
                                 </Grid>

@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
-import { Grid,Snackbar } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import {connect} from 'react-redux'
 import axiosHandler from '../../utils/axiosHandler'
+import MenuBar from '../MenuBar/MenuBar'
+
 class Layout extends Component {
     render() {
         
-        const menuBar =  this.props.isAuthenticated ?
-                        <Grid item xs={12} >
-                            <h2>Menu bar</h2>
-                        </Grid> 
-                        : null;
-        
+        const menuBar =  this.props.isAuthenticated ? <MenuBar />  : null;
 
         return (
             <Grid container>

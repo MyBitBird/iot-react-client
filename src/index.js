@@ -8,14 +8,23 @@ import {Provider} from 'react-redux'
 import authReducer from './store/reducers/auth'
 import thunk from 'redux-thunk'
 import axios from 'axios'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+
 
 const reducers = combineReducers({ auth: authReducer});
 const store=createStore(reducers, applyMiddleware(thunk));
 
+const theme = createMuiTheme({
+    palette: {
+        primary: blue,
+    },
+});
+
 axios.defaults.baseURL="http://localhost:5000/api/";
 
 
-ReactDOM.render(<Provider store={store}><BrowserRouter><App /></BrowserRouter></Provider> , document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><BrowserRouter><MuiThemeProvider theme={theme}><App /></MuiThemeProvider></BrowserRouter></Provider> , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
