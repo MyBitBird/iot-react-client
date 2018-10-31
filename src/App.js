@@ -3,7 +3,7 @@ import Auth from './containers/Auth/Auth';
 import Layout from './components/Layout/Layout'
 import classes from './App.css'
 import {Switch,Route,Redirect,withRouter} from 'react-router-dom'
-import Dashboard from './containers/Dashboard/Dashboard';
+import Service from './containers/Service/Service';
 import Axios from 'axios';
 import * as authAction from './store/actions/auth'
 import {connect} from 'react-redux'
@@ -18,7 +18,7 @@ class App extends Component {
 
     const routes = this.props.isAuthenticated ? 
       <Switch>
-        <Route path="/" component={Dashboard} />
+        <Route path="/" component={Service} />
       </Switch>
       :
       <Switch>

@@ -2,6 +2,7 @@ import axios from 'axios'
 import * as actionTypes from './actionTypes'
 
 const setLogin = (token) => {
+    
     localStorage.setItem('token', token);
     axios.defaults.headers.common['authorization'] = `Bearer ${token}`
     return {
@@ -13,7 +14,7 @@ const setLogin = (token) => {
 export const login = (username) => {
     return dispatch => {
         axios.post('users/Authenticate', username).then(result => {
-            dispatch(setLogin(result.token));
+            dispatch(setLogin(result.data.token));
 
         })
     }
