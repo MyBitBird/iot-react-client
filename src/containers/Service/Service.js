@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import * as serviceActions from '../../store/actions/service'
 import classes from './Service.css'
 import { Grid } from '@material-ui/core';
+import ServiceGrid from '../../components/Service/ServiceGrid/ServiceGrid';
+
 class Service  extends Component
 {
     
@@ -13,10 +15,12 @@ class Service  extends Component
 
     render()
     {
+        const serviceGrid = this.props.services==null ? null : <ServiceGrid services={this.props.services} />
+        
         return(
             <Grid container className={classes.container}>
                 <Grid xs={12} item>
-                    {this.props.services==null ? 'null' : this.props.services.map(service=>  <span>{service.title}</span>)}
+                    {serviceGrid}
                 </Grid>
             </Grid>
         )

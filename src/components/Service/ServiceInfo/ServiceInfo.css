@@ -1,0 +1,16 @@
+.container
+{
+     height:150px;
+     background-color:#F50057 !important;
+     padding: 10px;
+     text-align: center;
+}
+.text{
+    color: #ffffff !important;
+    padding:10px 0px 10px 0px;
+    
+}
+.icon{
+    color: #ffffff !important;
+
+}
