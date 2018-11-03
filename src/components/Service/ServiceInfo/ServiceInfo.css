@@ -5,9 +5,14 @@
      padding: 10px;
      text-align: center;
 }
-.text{
+.title{
     color: #ffffff !important;
     padding:10px 0px 10px 0px;
+    
+}
+.text{
+    color: #FFEB3B !important;
+    padding:10px 0px 0px 0px;
     
 }
 .icon{

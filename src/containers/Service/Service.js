@@ -4,6 +4,8 @@ import * as serviceActions from '../../store/actions/service'
 import classes from './Service.css'
 import { Grid } from '@material-ui/core';
 import ServiceGrid from '../../components/Service/ServiceGrid/ServiceGrid';
+import CircleButton from '../../components/UI/CircleButton/CircleButton';
+import ButtonsBar from '../../components/UI/ButtonsBar/ButtonsBar';
 
 class Service  extends Component
 {
@@ -18,10 +20,15 @@ class Service  extends Component
         const serviceGrid = this.props.services==null ? null : <ServiceGrid services={this.props.services} />
         
         return(
-            <Grid container className={classes.container}>
-                <Grid xs={12} item>
+            <Grid container >
+                <Grid xs={12} item className={classes.container}>
                     {serviceGrid}
                 </Grid>
+                <ButtonsBar>
+                    <CircleButton visible={this.props.selectedId} type='delete' color='secondary' />
+                    <CircleButton visible={this.props.selectedId} type='edit' color='secondary' />
+                    <CircleButton visible type='add' color='primary' />
+                </ButtonsBar>
             </Grid>
         )
     }
