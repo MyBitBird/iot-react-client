@@ -19,11 +19,8 @@ class Auth extends Component {
         this.setState({ errors: errors })
         if (errors.length>0) return;
         
-        if(!this.state.isInRegisterMode) this.props.onLogin({ username: this.props.username, password: this.props.password })
-        else this.props.onRegister({username: this.props.username,
-                                    password: this.props.password,
-                                    name: this.props.name,
-                                    family: this.props.family})
+        if(!this.state.isInRegisterMode) this.props.onLogin({...this.props})
+        else this.props.onRegister({...this.props})
 
     } 
 
@@ -36,7 +33,6 @@ class Auth extends Component {
             if(this.props.password.length<5) error.push('Password must be longer than 5 characters.')
         }
         return error;
-        
     }
 
     toggleRegisterModeHandler = () => this.setState(preState => { return { isInRegisterMode: !preState.isInRegisterMode } })

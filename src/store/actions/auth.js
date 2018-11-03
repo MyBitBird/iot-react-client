@@ -11,9 +11,10 @@ const setLogin = (token) => {
     }
 }
 
-export const login = (username) => {
+export const login = (props) => {
+    const user = { username: props.username, password: props.password }
     return dispatch => {
-        axios.post('users/Authenticate', username).then(result => {
+        axios.post('users/Authenticate', user).then(result => {
             dispatch(setLogin(result.data.token));
 
         })
@@ -36,7 +37,14 @@ export const onFieldChanged =(filed,value)=>{
     }
 }
 
-export const onRegister=(user)=>{
+export const onRegister=(props)=>{
+    const user = {
+        username: props.username,
+        password: props.password,
+        name: props.name,
+        family: props.family
+    }
+
     return dispatch=>{
         axios.post('users/SignUp',user).then(result=>{
             dispatch(setLogin(result.token))
