@@ -1,0 +1,13 @@
+.buttonsRow
+{
+     margin-top: 20px;
+     display:flex
+}
+.navigationButtons{
+     text-align: left;
+     flex:1
+}
+.closeButton{
+    text-align: right;
+    flex: 3 
+}
