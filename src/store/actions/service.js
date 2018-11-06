@@ -78,6 +78,13 @@ export const resetForms = ()=>{
     }
 }
 
+export const onSelectService = (guid) =>{
+    return{
+        type: actionTypes.SERVICE_SELECT_SERVICE,
+        id: guid
+    }
+}
+
 
 /*export const addService=(props)=>{
     return dispatch=>{

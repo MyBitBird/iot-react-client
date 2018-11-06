@@ -1,9 +1,16 @@
 .container
 {
      height:150px;
-     background-color:#F50057 !important;
      padding: 10px;
      text-align: center;
+     cursor: pointer;
+}
+.notSelectedService
+{
+    background-color:#F50057 !important;
+}
+.selectedService{
+    background-color:#bdbdbd !important;
 }
 .title{
     color: #ffffff !important;

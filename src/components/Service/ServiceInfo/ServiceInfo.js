@@ -2,11 +2,16 @@ import React from 'react'
 import { Paper, Typography, Grid } from '@material-ui/core';
 import classes from './ServiceInfo.css'
 import CloudIcon from '@material-ui/icons/Cloud'
+import {connect} from 'react-redux'
+import * as serviceActions from '../../../store/actions/service'
+
 const ServiceInfo = (props) => {
 
     return (
         <Grid xs={3} item >
-            <Paper className={classes.container}>
+            <Paper 
+                className={[classes.container, props.service.id === props.selectedId ? classes.selectedService : classes.notSelectedService]}
+                onClick={()=>props.onSelectService(props.service.id)}>
                 <CloudIcon fontSize="large" className={classes.icon} />
                 <Typography className={classes.title} variant="h5" component="h3">
                     {props.service.title}
@@ -19,4 +24,12 @@ const ServiceInfo = (props) => {
     )
 }
 
-export default ServiceInfo;
+const mapDispatchToProps = dispatch =>{
+    return{
+        onSelectService: (id) => dispatch(serviceActions.onSelectService(id))
+    }
+}
+
+const mapStateToProps = state => ({...state.service})
+
+export default connect(mapStateToProps,mapDispatchToProps)(ServiceInfo);

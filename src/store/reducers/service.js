@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/actionTypes'
 const initState={
     services: null,
     title:'',
-    serviceProperties: [{ title: '', code: ''}]
+    serviceProperties: [{ title: '', code: ''}],
+    selectedId: null
     
 }
 
@@ -34,8 +35,10 @@ const reducer = (state = initState,action)=>{
             return { ...state, serviceProperties: codeServiceProperties }
         
         case actionTypes.SERVICE_CLEAR_FORMS:
-            //return { ...state, title: '', serviceProperties: [{ title: '', code: '' }]}
             return initState;
+
+        case actionTypes.SERVICE_SELECT_SERVICE:
+            return { ...state, selectedId: action.id == state.selectedId ? null : action.id}
         
         default:
             return state; 

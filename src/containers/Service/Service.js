@@ -37,8 +37,8 @@ class Service extends Component {
                     </Grid>
                 </Grid>
                 <ButtonsBar>
-                    <CircleButton visible={0} type='delete' color='secondary' />
-                    <CircleButton visible={0} type='edit' color='secondary' />
+                    <CircleButton visible={this.props.selectedId!=null} type='delete' color='secondary' />
+                    <CircleButton visible={this.props.selectedId != null} type='edit' color='secondary' />
                     <CircleButton visible={1} type='add' color='primary' onClick={this.toggleServiceDialogHandler} />
                 </ButtonsBar>
             </Grid>
