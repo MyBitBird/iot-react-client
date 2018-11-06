@@ -3,7 +3,7 @@ import * as actionTypes from '../actions/actionTypes'
 const initState={
     services: null,
     title:'',
-    serviceProperties: []
+    serviceProperties: [{ title: '', code: ''}]
     
 }
 
@@ -32,7 +32,11 @@ const reducer = (state = initState,action)=>{
             const codeServiceProperties = [...state.serviceProperties];
             codeServiceProperties.splice(action.index, 1, { code: action.value, title: codeServiceProperties[action.index].title })
             return { ...state, serviceProperties: codeServiceProperties }
-
+        
+        case actionTypes.SERVICE_CLEAR_FORMS:
+            //return { ...state, title: '', serviceProperties: [{ title: '', code: '' }]}
+            return initState;
+        
         default:
             return state; 
     }

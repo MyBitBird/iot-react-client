@@ -67,6 +67,11 @@ class MyStepper extends Component {
         });
     };
 
+    onSubmit = (event)=>{
+        event.preventDefault();
+        this.isLastStep() ? this.props.onSave() : this.handleComplete();
+    }
+
 
     render() {
         const steps = this.getSteps();
@@ -80,8 +85,7 @@ class MyStepper extends Component {
                             <Step key={label}>
                                 <StepButton
                                     onClick={this.handleStep(index)}
-                                    completed={this.state.completed[index]}
-                                >
+                                    completed={this.state.completed[index]}>
                                     {label}
                                 </StepButton>
                             </Step>
@@ -97,7 +101,7 @@ class MyStepper extends Component {
                         :
                         (
                             <div>
-                                {this.getStepContent(activeStep)}
+                                <form onSubmit={event=>this.onSubmit(event)}>{this.getStepContent(activeStep)}
                                 <div className={classes.buttonsRow}>
                                     
                                     <div className={classes.navigationButtons}> 
@@ -116,12 +120,13 @@ class MyStepper extends Component {
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            onClick={this.isLastStep() ? this.props.onSave : this.handleComplete}>
+                                            //onClick={this.isLastStep() ? this.props.onSave : this.handleComplete}
+                                            type='submit'>
                                             {this.isLastStep() ? 'Save' : 'Next'}
                                         </Button>
                                     </div>
                                 </div>
-                               
+                                </form>
                             </div>
                         )
                     }

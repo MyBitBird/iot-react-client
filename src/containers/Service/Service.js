@@ -32,12 +32,14 @@ class Service extends Component {
             <Grid container >
                 <ServiceModal open={this.state.isAddDialogOpen} onClose={this.toggleServiceDialogHandler}  />
                 <Grid xs={12} item className={classes.container}>
-                    {serviceGrid}
+                    <Grid container spacing={16}>
+                        {serviceGrid}
+                    </Grid>
                 </Grid>
                 <ButtonsBar>
-                    <CircleButton visible={this.props.selectedId} type='delete' color='secondary' />
-                    <CircleButton visible={this.props.selectedId} type='edit' color='secondary' />
-                    <CircleButton visible type='add' color='primary' onClick={this.toggleServiceDialogHandler} />
+                    <CircleButton visible={0} type='delete' color='secondary' />
+                    <CircleButton visible={0} type='edit' color='secondary' />
+                    <CircleButton visible={1} type='add' color='primary' onClick={this.toggleServiceDialogHandler} />
                 </ButtonsBar>
             </Grid>
         )
