@@ -31,7 +31,18 @@ export const addService = (title, serviceProperties) => {
             })
         })
     }
+}
 
+export const deleteService = (guid) => {
+    return dispatch => {
+        axios.delete('/Services/' + guid).then(result => {
+            dispatch(getAll());
+            dispatch(resetForms())
+
+        })
+
+    }
+    
 }
 
 export const onFieldChanged = (field, value) => {
@@ -84,6 +95,7 @@ export const onSelectService = (guid) =>{
         id: guid
     }
 }
+
 
 
 /*export const addService=(props)=>{

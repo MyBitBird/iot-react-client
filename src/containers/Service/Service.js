@@ -37,7 +37,7 @@ class Service extends Component {
                     </Grid>
                 </Grid>
                 <ButtonsBar>
-                    <CircleButton visible={this.props.selectedId!=null} type='delete' color='secondary' />
+                    <CircleButton onClick={()=>this.props.deleteService(this.props.selectedId)} visible={this.props.selectedId!=null} type='delete' color='secondary' />
                     <CircleButton visible={this.props.selectedId != null} type='edit' color='secondary' />
                     <CircleButton visible={1} type='add' color='primary' onClick={this.toggleServiceDialogHandler} />
                 </ButtonsBar>
@@ -50,7 +50,8 @@ const mapStateToProps = state => ({ ...state.service })
 
 const mapDispatchToProps = dispatch => {
     return {
-        getServices: () => dispatch(serviceActions.getAll())
+        getServices: () => dispatch(serviceActions.getAll()),
+        deleteService: (guid) => dispatch(serviceActions.deleteService(guid))
     }
 }
 
