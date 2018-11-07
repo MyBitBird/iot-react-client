@@ -14,10 +14,15 @@ const ServiceModal = (props) => {
         props.onResetForm();
     });
 
+    const updateItemHandler = () => props.onUpdate(props.selectedId, props.title, props.serviceProperties).then(()=>{
+        props.onClose();
+        props.onResetForm();
+    });
+
 
     return (
         <Modal open={props.open}>
-                <Stepper steps={['Service Info', 'Service Properties']} onClose={props.onClose} onSave={saveItemHandler}>
+            <Stepper steps={['Service Info', 'Service Properties']} onClose={props.onClose} onSave={props.selectedId==null ? saveItemHandler : updateItemHandler}>
                     <TextField value={props.title} name='title' autoFocus required fullWidth label='Service Title' onChange={event => props.onTextChanged(event)} />
                     <ServiceProperties />
                 </Stepper>
@@ -28,7 +33,8 @@ const ServiceModal = (props) => {
 const mapDispatchToProps = dispatch=>{
     return { onTextChanged: (event) => dispatch(serviceActions.onFieldChanged(event.target.name, event.target.value)),
              onSave: (title, serviceProperties) => dispatch(serviceActions.addService(title, serviceProperties)),
-             onResetForm: () => dispatch(serviceActions.resetForms()) }
+             onResetForm: () => dispatch(serviceActions.resetForms()),
+             onUpdate: (id, title, serviceProperties) => dispatch(serviceActions.editService(id,title,serviceProperties))}
 }
 const mapStateToProps = state => ({...state.service})
 

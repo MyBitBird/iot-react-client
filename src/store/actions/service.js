@@ -33,16 +33,56 @@ export const addService = (title, serviceProperties) => {
     }
 }
 
+export const editService = (id, title, serviceProperties) => {
+    const service = {
+
+        title: title,
+        serviceProperties: serviceProperties
+    }
+    return dispatch => {
+        return new Promise(resolve => {
+            axios.put('/Services/' + id, service).then(result => {
+            dispatch(getAll());
+            dispatch(resetForms());
+            resolve();
+
+         })
+        }
+        );
+    }
+}
+
+export const getServiceDetailsById = (id) => {
+    return dispatch => {
+        return new Promise(resolve => {
+            axios.get('/Services/'+id).then(result=>{
+                dispatch(onLoadServiceInfo(result.data))
+                resolve();
+            })
+        })
+    }
+}
+
 export const deleteService = (guid) => {
     return dispatch => {
-        axios.delete('/Services/' + guid).then(result => {
-            dispatch(getAll());
-            dispatch(resetForms())
+        return new Promise(resolve => {
+            axios.delete('/Services/' + guid).then(result => {
+                dispatch(getAll());
+                dispatch(resetForms());
+                resolve();
 
-        })
-
+            })
+        }
+        )
     }
-    
+
+}
+
+export const onLoadServiceInfo = (serviceInfo)=>{
+    return{
+        type: actionTypes.SERVICE_LOAD_SERVICE_INFO,
+        serviceInfo: serviceInfo
+    }
 }
 
 export const onFieldChanged = (field, value) => {
@@ -83,14 +123,14 @@ export const onPropertyCodeChanged = (index, value) => {
     }
 }
 
-export const resetForms = ()=>{
-    return{
+export const resetForms = () => {
+    return {
         type: actionTypes.SERVICE_CLEAR_FORMS
     }
 }
 
-export const onSelectService = (guid) =>{
-    return{
+export const onSelectService = (guid) => {
+    return {
         type: actionTypes.SERVICE_SELECT_SERVICE,
         id: guid
     }

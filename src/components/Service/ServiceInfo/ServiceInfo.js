@@ -10,7 +10,7 @@ const ServiceInfo = (props) => {
     return (
         <Grid xs={3} item >
             <Paper 
-                className={[classes.container, props.service.id === props.selectedId ? classes.selectedService : classes.notSelectedService]}
+                className={[classes.container, props.service.id === props.selectedId ? classes.selectedService : classes.notSelectedService].join(' ')}
                 onClick={()=>props.onSelectService(props.service.id)}>
                 <CloudIcon fontSize="large" className={classes.icon} />
                 <Typography className={classes.title} variant="h5" component="h3">
