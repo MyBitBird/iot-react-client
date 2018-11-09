@@ -1,6 +1,6 @@
 .container
 {
-     height:150px;
+     min-height:150px;
      padding: 10px;
      text-align: center;
      cursor: pointer;
@@ -24,5 +24,7 @@
 }
 .icon{
     color: #ffffff !important;
-
+}
+.link{
+    color:#ffffff
 }

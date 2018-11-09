@@ -2,7 +2,7 @@ import axios from 'axios'
 import * as actionTypes from './actionTypes'
 
 const setLogin = (token) => {
-    
+
     localStorage.setItem('token', token);
     axios.defaults.headers.common['authorization'] = `Bearer ${token}`
     return {
@@ -21,23 +21,25 @@ export const login = (props) => {
     }
 }
 
-export const checkToken = () => {
+export const checkToken = (token) => {
     return dispatch => {
-        axios.get('users/Refresh').then(result => {
-            dispatch(setLogin(result.token))
+        const instance = axios.create();
+        instance.defaults.headers.common['authorization'] = `Bearer ${token}`
+        instance.get('users/Refresh').then(result => {
+            dispatch(setLogin(result.data.token))
         })
     }
 }
 
-export const onFieldChanged =(filed,value)=>{
-    return{
-        type:actionTypes.AUTH_FIELD_CHANGE,
-        filed:filed,
+export const onFieldChanged = (filed, value) => {
+    return {
+        type: actionTypes.AUTH_FIELD_CHANGE,
+        filed: filed,
         value: value
     }
 }
 
-export const onRegister=(props)=>{
+export const onRegister = (props) => {
     const user = {
         username: props.username,
         password: props.password,
@@ -45,8 +47,8 @@ export const onRegister=(props)=>{
         family: props.family
     }
 
-    return dispatch=>{
-        axios.post('users/SignUp',user).then(result=>{
+    return dispatch => {
+        axios.post('users/SignUp', user).then(result => {
             dispatch(setLogin(result.token))
 
         })

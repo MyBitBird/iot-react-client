@@ -22,7 +22,7 @@ const ServiceInfo = (props) => {
                     {props.service.id}
                 </Typography>
                 <br />
-                <Link to={`/Details/${props.service.id}`} >More Details</Link>
+                <Link className={classes.link} to={`/Details/${props.service.id}`} >More Details</Link>
             </Paper>
         </Grid>
     )

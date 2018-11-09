@@ -11,11 +11,14 @@ import ServiceDetails from './components/Service/ServiceDetails/ServiceDetails'
 
 class App extends Component {
   
+  componentDidMount(){
+    if (localStorage.getItem('token') != null)
+      this.props.checkTokenHandler(localStorage.getItem('token'));
+  }
   
   render() {
 
-    if(localStorage.getItem('token')!=null)
-        authAction.checkToken();
+   
 
     const routes = this.props.isAuthenticated ? 
       <Switch>
@@ -39,4 +42,10 @@ const mapStateToProps = state=>{
   return { isAuthenticated : state.auth.isAuthenticated}
 }
 
-export default withRouter(connect(mapStateToProps)(App));
+const mapDispatchToProps = dispatch =>{
+  return {
+    checkTokenHandler : (token) => dispatch(authAction.checkToken(token))
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
