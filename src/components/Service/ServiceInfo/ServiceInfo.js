@@ -2,8 +2,10 @@ import React from 'react'
 import { Paper, Typography, Grid } from '@material-ui/core';
 import classes from './ServiceInfo.css'
 import CloudIcon from '@material-ui/icons/Cloud'
+import MoreIcon from '@material-ui/icons/MoreHoriz'
 import {connect} from 'react-redux'
 import * as serviceActions from '../../../store/actions/service'
+import {Link} from 'react-router-dom'
 
 const ServiceInfo = (props) => {
 
@@ -19,6 +21,8 @@ const ServiceInfo = (props) => {
                 <Typography className={classes.text}  component="p">
                     {props.service.id}
                 </Typography>
+                <br />
+                <Link to={`/Details/${props.service.id}`} >More Details</Link>
             </Paper>
         </Grid>
     )
@@ -32,4 +36,4 @@ const mapDispatchToProps = dispatch =>{
 
 const mapStateToProps = state => ({...state.service})
 
-export default connect(mapStateToProps,mapDispatchToProps)(ServiceInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceInfo);

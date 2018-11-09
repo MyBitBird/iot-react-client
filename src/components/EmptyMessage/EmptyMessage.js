@@ -5,7 +5,8 @@ const EmptyMessage = (props)=>{
 
     const style={
         padding:10,
-        width:'80%'
+        width:'80%',
+        margin: 'auto'
     }
 
     return(

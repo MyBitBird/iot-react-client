@@ -26,7 +26,7 @@ const reducer = (state = initState,action)=>{
 
         case actionTypes.SERVICE_PROPERTY_TITLE_CHANGED:
             const titleServiceProperties = [...state.serviceProperties];
-            titleServiceProperties.splice(action.index, 1, { id:titleServiceProperties[action.index].id, title: action.value, code: titleServiceProperties[action.index].code})
+            titleServiceProperties.splice(action.index, 1, { id: titleServiceProperties[action.index].id, title: action.value, code: titleServiceProperties[action.index].code})
             return { ...state, serviceProperties: titleServiceProperties }
 
         case actionTypes.SERVICE_PROPERTY_CODE_CHANGED:

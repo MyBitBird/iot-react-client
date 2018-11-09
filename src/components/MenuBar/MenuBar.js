@@ -18,16 +18,16 @@ const MenuBar =()=>{
         <AppBar position="static">
             <Toolbar>
                 <Grid item xs={11}>
-                    <Link to='services'>
+                    <Link to='/services'>
                         <BottomNavigationAction className={classes.selectedLinks} showLabel label="Services" icon={<CloudIcon />} />
                     </Link>
-                    <Link to='Properties'>
+                    <Link to='/Properties'>
                         <BottomNavigationAction className={classes.selectedLinks} showLabel label="Properties" icon={<AtachIcon />} />
                     </Link>
-                    <Link to='Reports'>
+                    <Link to='/Reports'>
                         <BottomNavigationAction className={classes.selectedLinks} showLabel label="Reports" icon={<ReportIcon />} />
                     </Link>
-                    <Link to='Devices'>
+                    <Link to='/Devices'>
                         <BottomNavigationAction className={classes.selectedLinks} showLabel label="Devices" icon={<DeviceIcon />} />
                     </Link>
                 </Grid>

@@ -1,0 +1,18 @@
+.container{
+    padding: 20px;
+    margin: 5% auto;
+    width: 40%;
+    text-align: center;
+    
+
+}
+.itemDetails{
+    margin-top: 40px;
+}
+
+.chips{
+    margin-right: 10px;
+    display: flex;
+    margin-top: 5px;
+    
+}
