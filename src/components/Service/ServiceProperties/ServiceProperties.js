@@ -1,7 +1,7 @@
 import React from 'react'
-import Aux from '../../utils/Auxilary';
+import Aux from '../../../utils/Auxilary';
 import { connect } from 'react-redux'
-import * as serviceActions from '../../store/actions/service'
+import * as serviceActions from '../../../store/actions/service'
 import { Button, TextField } from '@material-ui/core'
 import classes from './ServiceProperties.css'
 import AddIcon from '@material-ui/icons/Add'

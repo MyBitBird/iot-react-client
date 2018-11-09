@@ -5,7 +5,7 @@ import Modal from '../../UI/Modal/Modal'
 import Stepper from '../../../containers/Stepper/Stepper'
 import {connect} from 'react-redux'
 import * as serviceActions from '../../../store/actions/service'
-import ServiceProperties from '../../ServiceProperties/ServiceProperties';
+import ServiceProperties from '../ServiceProperties/ServiceProperties';
 
 const ServiceModal = (props) => {
 
