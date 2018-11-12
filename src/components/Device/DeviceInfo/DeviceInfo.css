@@ -20,3 +20,12 @@
     text-align: left;
     flex:1;
 }
+.selectedDevice{
+    background-color:#eeeeee !important;
+
+}
+
+.notSelectedDevice{
+    background-color:#ffffff !important;
+
+}
