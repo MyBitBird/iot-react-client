@@ -17,8 +17,8 @@ class Device extends Component{
     
     componentDidMount()
     {
-        this.props.onLoadDevices();
-        this.props.onLoadServices();
+        this.props.loadDevices();
+        this.props.loadServices();
 
     }
 
@@ -43,7 +43,7 @@ class Device extends Component{
                     </Grid>
                 </Grid>
                 <ButtonsBar>
-                    <CircleButton visible={this.props.selectedId != null ? 1 : 0} type='delete' color='secondary' />
+                    <CircleButton onClick={() => this.props.deleteDevice(this.props.selectedId)} visible={this.props.selectedId != null ? 1 : 0} type='delete' color='secondary' />
                     <CircleButton visible={this.props.selectedId != null ? 1 : 0} type='edit' color='secondary' />
                     <CircleButton onClick={this.onAddButtonClick} visible={1} type='add' color='primary' />
                 </ButtonsBar>
@@ -57,8 +57,9 @@ const mapStateToProps = state => ({...state.device})
 
 const mapDispatchToProps = dispatch =>{
     return{
-        onLoadDevices : () => dispatch(deviceActions.getAll()),
-        onLoadServices : () => dispatch(serviceActions.getAll())
+        loadDevices : () => dispatch(deviceActions.getAll()),
+        loadServices : () => dispatch(serviceActions.getAll()),
+        deleteDevice : (id) => dispatch(deviceActions.deleteDevice(id))
     }
 }
 

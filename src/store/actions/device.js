@@ -36,6 +36,21 @@ export const addDevice = (props) => {
     }
 }
 
+export const deleteDevice = (guid) => {
+    return dispatch => {
+        return new Promise(resolve => {
+            axios.delete('/users/' + guid).then(result => {
+                dispatch(getAll());
+                dispatch(resetForms());
+                resolve();
+
+            })
+        }
+        )
+    }
+
+}
+
 export const onSelectServiceChanged = (guid) =>
 {
     return{
