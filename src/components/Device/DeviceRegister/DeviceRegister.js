@@ -7,9 +7,9 @@ const DeviceRegister = (props) =>{
     return(
         <div>
             <TextField onChange={event => props.onTextChanged(event)} value={props.title}  name='title' required label='Title' fullWidth/>
-            <TextField onChange={event => props.onTextChanged(event)} value={props.desc} name='desc' label='Desc' fullWidth />
+            <TextField onChange={event => props.onTextChanged(event)} value={props.desc} name='desc' required label='Desc' fullWidth />
             <TextField onChange={event => props.onTextChanged(event)} value={props.username}  name='username' required label='Username' fullWidth />
-            <TextField onChange={event => props.onTextChanged(event)} value={props.password} name='password'  required label='Password' fullWidth type='password'/>
+            <TextField onChange={event => props.onTextChanged(event)} value={props.password} name='password' required={props.selectedId == null}  label='Password' fullWidth type='password'/>
         </div>
     )
 }

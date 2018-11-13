@@ -22,6 +22,10 @@ class Device extends Component{
 
     }
 
+    editDeviceHandler = () => {
+        this.props.getDeviceInfo(this.props.selectedId).then(this.setState({ isAddDialogOpen: true }))
+    }
+
     toggleServiceDialogHandler = () => this.setState(preState => { return { isAddDialogOpen: !preState.isAddDialogOpen } })
 
 
@@ -44,7 +48,7 @@ class Device extends Component{
                 </Grid>
                 <ButtonsBar>
                     <CircleButton onClick={() => this.props.deleteDevice(this.props.selectedId)} visible={this.props.selectedId != null ? 1 : 0} type='delete' color='secondary' />
-                    <CircleButton visible={this.props.selectedId != null ? 1 : 0} type='edit' color='secondary' />
+                    <CircleButton onClick={this.editDeviceHandler} visible={this.props.selectedId != null ? 1 : 0} type='edit' color='secondary' />
                     <CircleButton onClick={this.onAddButtonClick} visible={1} type='add' color='primary' />
                 </ButtonsBar>
             </Grid>
@@ -59,7 +63,8 @@ const mapDispatchToProps = dispatch =>{
     return{
         loadDevices : () => dispatch(deviceActions.getAll()),
         loadServices : () => dispatch(serviceActions.getAll()),
-        deleteDevice : (id) => dispatch(deviceActions.deleteDevice(id))
+        deleteDevice : (id) => dispatch(deviceActions.deleteDevice(id)),
+        getDeviceInfo: (guid) => dispatch(deviceActions.getDeviceDetailsById(guid)),
     }
 }
 

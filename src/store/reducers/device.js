@@ -33,6 +33,13 @@ const reducer = ( state = initState , action ) =>{
         case actionTypes.DEVICE_CLEAR_FORMS:
             return { ...initState, devices: state.devices };
 
+        case actionTypes.DEVICE_LOAD_DEVICE_INFO:
+            const device = action.deviceInfo;
+            return { ...state, title: device.name,
+                        desc: device.family,
+                        username: device.username,
+                        selectedServices: device.serviceUsers.map(service => service.serviceId) }
+
         default:
             return state;
     }

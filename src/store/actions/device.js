@@ -51,6 +51,47 @@ export const deleteDevice = (guid) => {
 
 }
 
+export const editDevice = (id, props) => {
+    const device = {
+        name: props.title,
+        family: props.desc,
+        username: props.username,
+        password: props.password,
+        serviceUsers: props.selectedServices.map(item => ({ serviceId: item }))
+    }
+
+    return dispatch => {
+        return new Promise(resolve => {
+            axios.put('/Users/' + id, device).then(result => {
+                dispatch(getAll());
+                dispatch(resetForms());
+                resolve();
+
+            })
+        }
+        );
+    }
+}
+
+
+export const getDeviceDetailsById = (id) => {
+    return dispatch => {
+        return new Promise(resolve => {
+            axios.get('/users/' + id).then(result => {
+                dispatch(onLoadDeviceInfo(result.data))
+                resolve();
+            })
+        })
+    }
+}
+
+export const onLoadDeviceInfo = (deviceInfo) => {
+    return {
+        type: actionTypes.DEVICE_LOAD_DEVICE_INFO,
+        deviceInfo: deviceInfo
+    }
+}
+
 export const onSelectServiceChanged = (guid) =>
 {
     return{
