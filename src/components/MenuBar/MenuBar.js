@@ -5,7 +5,6 @@ import classes  from './MenuBar.css'
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import logo from '../../assets/images/bitbird.png'
 import CloudIcon from '@material-ui/icons/Cloud'
-import AtachIcon from '@material-ui/icons/AttachFile'
 import ReportIcon from '@material-ui/icons/Poll'
 import DeviceIcon from '@material-ui/icons/Router'
 import AppBar from '@material-ui/core/AppBar';
@@ -21,14 +20,11 @@ const MenuBar =()=>{
                     <Link to='/services'>
                         <BottomNavigationAction className={classes.selectedLinks} showLabel label="Services" icon={<CloudIcon />} />
                     </Link>
-                    <Link to='/Properties'>
-                        <BottomNavigationAction className={classes.selectedLinks} showLabel label="Properties" icon={<AtachIcon />} />
+                    <Link to='/Devices'>
+                        <BottomNavigationAction className={classes.selectedLinks} showLabel label="Devices" icon={<DeviceIcon />} />
                     </Link>
                     <Link to='/Reports'>
                         <BottomNavigationAction className={classes.selectedLinks} showLabel label="Reports" icon={<ReportIcon />} />
-                    </Link>
-                    <Link to='/Devices'>
-                        <BottomNavigationAction className={classes.selectedLinks} showLabel label="Devices" icon={<DeviceIcon />} />
                     </Link>
                 </Grid>
                 <Button color="inherit" className={classes.rightLinks}  >Logout</Button>

@@ -16,7 +16,10 @@ const DeviceInfo = (props) => {
                 </div>
                 <div className={classes.detailsContainer}>
                     <Typography variant="h5" component="h3">
-                        {`${props.device.name} ${props.device.family}`}
+                        {props.device.name} 
+                    </Typography>
+                    <Typography variant="h6" >
+                        {props.device.family}
                     </Typography>
                     <span>
                         {props.device.username}
