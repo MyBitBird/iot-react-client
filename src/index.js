@@ -8,6 +8,7 @@ import {Provider} from 'react-redux'
 import authReducer from './store/reducers/auth'
 import serviceReducer from './store/reducers/service'
 import deviceReducer from './store/reducers/device'
+import reportReducer from './store/reducers/report'
 import thunk from 'redux-thunk'
 import axios from 'axios'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -17,7 +18,8 @@ import blue from '@material-ui/core/colors/blue';
 const reducers = combineReducers(
     { auth: authReducer, 
       service: serviceReducer,
-      device: deviceReducer}
+      device: deviceReducer,
+      report: reportReducer}
     );
 const store=createStore(reducers, applyMiddleware(thunk));
 
