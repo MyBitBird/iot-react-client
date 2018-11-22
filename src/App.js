@@ -10,6 +10,7 @@ import {connect} from 'react-redux'
 import ServiceDetails from './components/Service/ServiceDetails/ServiceDetails'
 import Device from './containers/Device/Device'
 import Report from './containers/Report/Report'
+import ReportResult from './components/Reports/ReportResult/ReportResult'
 
 class App extends Component {
   
@@ -26,6 +27,7 @@ class App extends Component {
       <Switch>
         <Route path="/Details/:id" component={ServiceDetails} />
         <Route path="/Devices" component={Device} />
+        <Route path="/ReportResult/:serviceId" component={ReportResult} />
         <Route path="/Reports" component={Report} />
         <Route path="/" component={Service} />
       </Switch>

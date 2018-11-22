@@ -18,9 +18,9 @@ const ReportModal = (props) =>
                 <span>Select Service:</span>
                 <ServicesSelect selectedValue={props.selectedService} onChange={props.onSelectedServiceChanged} />
                 <br />
-                <TextField id='startDate' label='Select Start Date' type='datetime-local' defaultValue={moment().add(-1, 'days').format('YYYY-MM-DDTHH:mm')} />
+                <TextField onChange={event => props.onTextChanged(event)} name='from' label='Select Start Date' type='datetime-local' value={props.getPropsHandler('from')} />
                 <br />
-                <TextField id='endDate' label='Select End Date' type='datetime-local' defaultValue={moment().format('YYYY-MM-DDTHH:mm')} />
+                <TextField onChange={event => props.onTextChanged(event)} name='to' label='Select End Date' type='datetime-local' value={props.getPropsHandler('to')} />
                 <br />
                 <div style={style.buttonsRow}>
                     

@@ -1,9 +1,10 @@
 import React , {Component} from 'react'
-import {Grid} from '@material-ui/core'
+import {Grid, Button} from '@material-ui/core'
 import ReportItem from '../../components/Reports/ReportItem/ReportItem';
 import classes from './Report.css'
 import {connect} from 'react-redux'
 import * as serviceActions from '../../store/actions/service'
+import SimpleReport from '../../components/Reports/SimpleReport/SimpleReport'
 
 class Report extends Component{
 
@@ -18,7 +19,8 @@ class Report extends Component{
             <div className={classes.container} >
                 <Grid container spacing={32}>
                     <Grid item xs={3}>
-                        <ReportItem title='Simple Report' color='#00e5ff' name='SIMPLE_REPORT' />
+                        <SimpleReport title='Simple Report' color='#00e5ff' name='SIMPLE_REPORT' />
+                            
                     </Grid>
                     <Grid item xs={3}>
                         <ReportItem disable title='Log Report' color='#ff3d00' name='LOG_REPORT' />
@@ -37,4 +39,6 @@ const mapDispatchToProps = dispatch =>
     }
 }
 
-export default connect(null,mapDispatchToProps)(Report);
+const mapStateToProps = state => ({...state.report})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Report);

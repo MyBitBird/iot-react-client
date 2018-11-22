@@ -57,7 +57,7 @@ export const getServiceDetailsById = (id) => {
         return new Promise(resolve => {
             axios.get('/Services/'+id).then(result=>{
                 dispatch(onLoadServiceInfo(result.data))
-                resolve();
+                resolve(result.data);
             })
         })
     }

@@ -1,11 +1,9 @@
 import React from 'react'
-import { Typography, Paper, TextField, FormControl } from '@material-ui/core'
+import { Typography, Paper } from '@material-ui/core'
 import Aux from '../../../utils/Auxilary';
 import {connect} from 'react-redux'
 import * as reportActions from '../../../store/actions/report'
 import ReportModal from '../ReportModal/ReportModal';
-
-
 
 const ReportItem = (props) => {
 
@@ -23,6 +21,16 @@ const ReportItem = (props) => {
         color: '#ffffff',
         flexDirection:'column'
     }
+
+    const onFinishHandler = () =>
+    {
+        props.setSelectedReport('');
+        props.onFinish();
+    }
+
+    const getPropsHandler = field => props[field]
+
+    
     return (
         <Aux>
             <Paper style={style} onClick={!props.disable ? ()=>props.setSelectedReport(REPORT_NAME) : null}>
@@ -39,7 +47,9 @@ const ReportItem = (props) => {
                 selectedService={props.selectedService} 
                 onSelectedServiceChanged={props.setSelectedServiceHandler}
                 onClose={()=>props.setSelectedReport('')}
-                onFinish={props.onFinish} /> 
+                onTextChanged = {props.onTextChangedHandler}
+                onFinish={()=>onFinishHandler()}
+                getPropsHandler={getPropsHandler} /> 
            
         </Aux>
     )
@@ -53,7 +63,8 @@ const mapDispatchToProps = dispatch =>
 {
     return{
         setSelectedReport : (report) => dispatch(reportActions.setSelectedReport(report)),
-        setSelectedServiceHandler : (service) => dispatch(reportActions.setSelectedService(service))
+        setSelectedServiceHandler : (service) => dispatch(reportActions.setSelectedService(service)),
+        onTextChangedHandler : (event) => dispatch(reportActions.onFieldChanged(event.target.name,event.target.value))
 
     }
 }
