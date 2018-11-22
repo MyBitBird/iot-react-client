@@ -9,11 +9,7 @@ This project is a React client for [.Net core iot-webapi](https://github.com/MyB
 * JWT Authentication
 * CSS Modules
 * Form Validation
-# Screenshots
-![Services](/screenshots/services.png?raw=true)
-![Devices](/screenshots/devices.png?raw=true)
-![Reports](/screenshots/reports.png?raw=true)
-![Report](/screenshots/report.png?raw=true)
+
 # Functionality overview
 * CRUD Users (SignUp - Login - Create-Edit-Delete Subusers(devices) )
 * CRUD Services
@@ -37,5 +33,11 @@ This project is a React client for [.Net core iot-webapi](https://github.com/MyB
 - [ ] Make Report Result View Better
 - [ ] Make More Reports 
 - [ ] Write Unit tests
+
+# Screenshots
+![Services](/screenshots/services.png?raw=true)
+![Devices](/screenshots/devices.png?raw=true)
+![Reports](/screenshots/reports.png?raw=true)
+![Report](/screenshots/report.png?raw=true)
 
 **Meisam Malekzadeh**
