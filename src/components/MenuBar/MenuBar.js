@@ -9,9 +9,10 @@ import ReportIcon from '@material-ui/icons/Poll'
 import DeviceIcon from '@material-ui/icons/Router'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import {connect} from 'react-redux'
+import * as authActions from '../../store/actions/auth'
 
-
-const MenuBar =()=>{
+const MenuBar =(props)=>{
 
     return(
         <AppBar position="static">
@@ -27,7 +28,7 @@ const MenuBar =()=>{
                         <BottomNavigationAction className={classes.selectedLinks} showLabel label="Reports" icon={<ReportIcon />} />
                     </Link>
                 </Grid>
-                <Button color="inherit" className={classes.rightLinks}  >Logout</Button>
+                <Button color="inherit" onClick={props.onLogout} className={classes.rightLinks}  >Logout</Button>
                 <img src={logo} width="80" height="80" />
             </Toolbar>
        </AppBar>
@@ -35,4 +36,11 @@ const MenuBar =()=>{
     )
 }
 
-export default MenuBar;
+const mapDispatchToProps = dispatch =>
+{
+    return {
+        onLogout : () => dispatch(authActions.logOut())
+    }
+}
+
+export default connect(null,mapDispatchToProps)(MenuBar);

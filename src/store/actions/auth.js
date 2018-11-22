@@ -55,3 +55,9 @@ export const onRegister = (props) => {
     }
 }
 
+export const logOut = () =>
+{
+    localStorage.removeItem('token');
+    return{ type: actionTypes.LOGOUT}
+}
+

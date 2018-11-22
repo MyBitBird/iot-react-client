@@ -1,4 +1,5 @@
 export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT'
 export const AUTH_FIELD_CHANGE = 'AUTH_FILED_CHANGE'
 
 export const SERVICE_FIELD_CHANGE = 'SERVICE_FIELD_CHANGE'

@@ -19,6 +19,8 @@ const resucer = (state = initState,action)=>{
             return {...state,isAuthenticated:true,token:action.token}
         case actionTypes.AUTH_FIELD_CHANGE:
             return {...state,[action.filed]:action.value}
+        case actionTypes.LOGOUT:
+            return {...initState}
         default :
             return state;            
     }
