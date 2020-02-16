@@ -12,7 +12,6 @@ class MyStepper extends Component {
         completed: [],
     };
 
-
     getSteps = () => [...this.props.steps]
 
     getStepContent = (step) => this.props.children[step]
@@ -67,11 +66,10 @@ class MyStepper extends Component {
         });
     };
 
-    onSubmit = (event)=>{
+    onSubmit = (event) => {
         event.preventDefault();
         this.isLastStep() ? this.props.onSave() : this.handleComplete();
     }
-
 
     render() {
         const steps = this.getSteps();
@@ -95,17 +93,15 @@ class MyStepper extends Component {
                 </Stepper>
                 <div>
                     {this.allStepsCompleted() ?
-                        (
-                            <Button onClick={this.handleReset}>Finish</Button>
-                        )
+
+                        <Button onClick={this.handleReset}>Finish</Button>
                         :
-                        (
-                            <div>
-                                <form onSubmit={event=>this.onSubmit(event)}>{this.getStepContent(activeStep)}
+                        <div>
+                            <form onSubmit={event => this.onSubmit(event)}>{this.getStepContent(activeStep)}
                                 <div className={classes.buttonsRow}>
-                                    
-                                    <div className={classes.navigationButtons}> 
-                                        <Button 
+
+                                    <div className={classes.navigationButtons}>
+                                        <Button
                                             color='primary'
                                             onClick={this.props.onClose}>
                                             Close
@@ -120,15 +116,13 @@ class MyStepper extends Component {
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            //onClick={this.isLastStep() ? this.props.onSave : this.handleComplete}
                                             type='submit'>
                                             {this.isLastStep() ? 'Save' : 'Next'}
                                         </Button>
                                     </div>
                                 </div>
-                                </form>
-                            </div>
-                        )
+                            </form>
+                        </div>
                     }
                 </div>
             </Aux>

@@ -20,14 +20,12 @@ class Report extends Component{
                 <Grid container spacing={32}>
                     <Grid item xs={3}>
                         <SimpleReport title='Simple Report' color='#00e5ff' name='SIMPLE_REPORT' />
-                            
                     </Grid>
                     <Grid item xs={3}>
                         <ReportItem disable title='Log Report' color='#ff3d00' name='LOG_REPORT' />
                     </Grid>
                 </Grid>
             </div>
-
         )
     }
 }
