@@ -15,28 +15,28 @@ class Auth extends Component {
 
     onSubmit = (event) => {
         event.preventDefault();
-        const errors=this.formValidation();
-        this.setState({ errors: errors })
-        if (errors.length>0) return;
-        
-        if(!this.state.isInRegisterMode) this.props.onLogin({...this.props})
-        else this.props.onRegister({...this.props})
+        this.formValidation();
+    }
 
-    } 
-
-    formValidation =()=>
-    {
-        const error=[];
-        if(this.state.isInRegisterMode)
-        {
-            if(this.props.password!=this.props.rePassword) error.push('Password & RePassword are not equal.')
-            if(this.props.password.length<5) error.push('Password must be longer than 5 characters.')
+    formValidation = () => {
+        const errors = [];
+        if (this.state.isInRegisterMode) {
+            if (this.props.password != this.props.rePassword) errors.push('Password & RePassword are not equal.')
+            if (this.props.password.length < 5) errors.push('Password must be longer than 5 characters.')
         }
-        return error;
+
+        this.setState({ errors: errors }, () => errors.length == 0 ? this.actionHandler() : null);
     }
 
     toggleRegisterModeHandler = () => this.setState(preState => { return { isInRegisterMode: !preState.isInRegisterMode } })
-   
+
+    actionHandler() {
+        if (this.state.isInRegisterMode)
+            this.props.onRegister({ ...this.props })
+        else
+            this.props.onLogin({ ...this.props })
+    }
+
     render() {
         const style = { backgroundImage: `url(${bg})` }
 
@@ -48,17 +48,17 @@ class Auth extends Component {
 
         return (
             <form onSubmit={event => this.onSubmit(event)}>
-            <Grid container className={classes.container} >
-                <Grid xs={4} item />
-                <Grid xs={4} item>
-                    <Paper className={classes.loginPanel}>
-                        <Grid container>
+                <Grid container className={classes.container} >
+                    <Grid xs={4} item />
+                    <Grid xs={4} item>
+                        <Paper className={classes.loginPanel}>
+                            <Grid container>
                                 <Grid xs={12} item style={style} className={classes.loginHeader} />
                                 <Grid xs={12} item className={classes.loginText}><h3>Login</h3></Grid>
                                 <Grid xs={12} item className={classes.errorPanel}>
-                                {
+                                    {
                                         this.state.errors.map(error => <span>* {error}<br /></span>)
-                                }
+                                    }
                                 </Grid>
                                 <TextField required fullWidth label="Username" name="username" onChange={event => this.props.onFieldChanged(event)} />
                                 <TextField required type="password" name='password' fullWidth label="Password" onChange={event => this.props.onFieldChanged(event)} />
@@ -73,12 +73,12 @@ class Auth extends Component {
                                         <Button onClick={this.toggleRegisterModeHandler} fullWidth color="primary" >{this.state.isInRegisterMode ? 'Login' : 'SignUp'}</Button>
                                     </Grid>
                                 </Grid>
-                        </Grid>
-                    </Paper>
-                    <div className={classes.domainText}>BitBird</div>
+                            </Grid>
+                        </Paper>
+                        <div className={classes.domainText}>BitBird</div>
+                    </Grid>
+                    <Grid xs={4} item />
                 </Grid>
-                <Grid xs={4} item />
-            </Grid>
             </form>
         )
     }
@@ -86,13 +86,13 @@ class Auth extends Component {
 
 const mapDispathToProps = dispatch => {
     return {
-             onLogin: (user) => dispatch(authActions.login(user)),
-             onFieldChanged: (event) =>  dispatch(authActions.onFieldChanged(event.target.name,event.target.value)) ,
-             onRegister: (user) => dispatch(authActions.onRegister(user))  
-            }
+        onLogin: (user) => dispatch(authActions.login(user)),
+        onFieldChanged: (event) => dispatch(authActions.onFieldChanged(event.target.name, event.target.value)),
+        onRegister: (user) => dispatch(authActions.onRegister(user))
+    }
 }
 
-const mapStateToProps = state =>({...state.auth})
+const mapStateToProps = state => ({ ...state.auth })
 
 
 export default connect(mapStateToProps, mapDispathToProps)(Auth);
