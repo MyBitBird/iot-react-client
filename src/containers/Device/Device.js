@@ -39,9 +39,9 @@ class Device extends Component{
                     </Grid>
                 </Grid>
                 <ButtonsBar>
-                    <CircleButton onClick={() => this.props.deleteDevice(this.props.selectedId)} visible={this.props.selectedId != null ? 1 : 0} type='delete' color='secondary' />
-                    <CircleButton onClick={this.editDeviceHandler} visible={this.props.selectedId != null ? 1 : 0} type='edit' color='secondary' />
-                    <CircleButton onClick={this.openAddDialog} visible={1} type='add' color='primary' />
+                    <CircleButton onClick={() => this.props.deleteDevice(this.props.selectedId)} visible={this.props.selectedId != null} type='delete' color='secondary' />
+                    <CircleButton onClick={this.editDeviceHandler} visible={this.props.selectedId != null} type='edit' color='secondary' />
+                    <CircleButton onClick={this.openAddDialog} visible={true} type='add' color='primary' />
                 </ButtonsBar>
             </Grid>
         )
