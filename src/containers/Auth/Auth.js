@@ -30,7 +30,7 @@ class Auth extends Component {
 
     toggleRegisterModeHandler = () => this.setState(preState => { return { isInRegisterMode: !preState.isInRegisterMode } })
 
-    actionHandler() {
+    actionHandler = () => {
         if (this.state.isInRegisterMode)
             this.props.onRegister({ ...this.props })
         else

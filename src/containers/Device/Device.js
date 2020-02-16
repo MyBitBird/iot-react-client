@@ -12,35 +12,27 @@ class Device extends Component{
 
     state = {
         isAddDialogOpen: false
-
     }
     
     componentDidMount()
     {
         this.props.loadDevices();
         this.props.loadServices();
-
     }
 
-    editDeviceHandler = () => {
-        this.props.getDeviceInfo(this.props.selectedId).then(this.setState({ isAddDialogOpen: true }))
-    }
+    editDeviceHandler = () => this.props.getDeviceInfo(this.props.selectedId).then(this.openAddDialog())
 
-    toggleServiceDialogHandler = () => this.setState(preState => { return { isAddDialogOpen: !preState.isAddDialogOpen } })
+    openAddDialog = () => this.setState({ isAddDialogOpen: true });
 
-
-    onAddButtonClick = () => {
-//        this.props.resetForms();
-        this.toggleServiceDialogHandler();
-    }
+    closeAddDialog = () => this.setState({ isAddDialogOpen: false });
+    
 
     render(){
         const deviceGrid = this.props.devices == null ? null : <DeviceGrid devices={this.props.devices} />
 
-
         return(
             <Grid container >
-                <DeviceModal open={this.state.isAddDialogOpen} onClose={this.toggleServiceDialogHandler} />
+                <DeviceModal open={this.state.isAddDialogOpen} onClose={this.closeAddDialog} />
                 <Grid xs={12} item style={{padding:20,height:'80%'}}>
                     <Grid container spacing={16}>
                         {deviceGrid}
@@ -49,10 +41,9 @@ class Device extends Component{
                 <ButtonsBar>
                     <CircleButton onClick={() => this.props.deleteDevice(this.props.selectedId)} visible={this.props.selectedId != null ? 1 : 0} type='delete' color='secondary' />
                     <CircleButton onClick={this.editDeviceHandler} visible={this.props.selectedId != null ? 1 : 0} type='edit' color='secondary' />
-                    <CircleButton onClick={this.onAddButtonClick} visible={1} type='add' color='primary' />
+                    <CircleButton onClick={this.openAddDialog} visible={1} type='add' color='primary' />
                 </ButtonsBar>
             </Grid>
-
         )
     }
 }
