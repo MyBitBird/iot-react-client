@@ -10,24 +10,23 @@ import ServiceModal from '../../components/Service/ServiceModal/ServiceModal';
 
 class Service extends Component {
 
-    state={
-        isAddDialogOpen : false
-
+    state = {
+        isAddDialogOpen: false
     }
 
     componentDidMount() {
         this.props.getServices();
     }
-    
-    toggleServiceDialogHandler = () => this.setState(preState=>{return {isAddDialogOpen:!preState.isAddDialogOpen}})
 
-    editServiceHandler = ()=>{
-        this.props.getServiceInfo(this.props.selectedId).then(this.setState({isAddDialogOpen: true}))
-    }
+    editServiceHandler = () => this.props.getServiceInfo(this.props.selectedId).then(this.setState({ isAddDialogOpen: true }))
+
+    openAddDialog = () => this.setState({ isAddDialogOpen: true })
+
+    closeAddDialog = () => this.setState({ isAddDialogOpen: false })
 
     onAddButtonClick = () => {
         this.props.resetForms();
-        this.toggleServiceDialogHandler();
+        this.openAddDialog();
     }
 
     render() {
@@ -35,16 +34,16 @@ class Service extends Component {
 
         return (
             <Grid container >
-                <ServiceModal open={this.state.isAddDialogOpen} onClose={this.toggleServiceDialogHandler}  />
+                <ServiceModal open={this.state.isAddDialogOpen} onClose={this.closeAddDialog} />
                 <Grid xs={12} item className={classes.container}>
                     <Grid container spacing={16}>
                         {serviceGrid}
                     </Grid>
                 </Grid>
                 <ButtonsBar>
-                    <CircleButton onClick={() => this.props.deleteService(this.props.selectedId)} visible={this.props.selectedId != null ? 1 : 0} type='delete' color='secondary' />
-                    <CircleButton onClick={this.editServiceHandler} visible={this.props.selectedId != null ? 1 : 0} type='edit' color='secondary' />
-                    <CircleButton onClick={this.onAddButtonClick} visible={1} type='add' color='primary'  />
+                    <CircleButton onClick={() => this.props.deleteService(this.props.selectedId)} visible={this.props.selectedId != null} type='delete' color='secondary' />
+                    <CircleButton onClick={this.editServiceHandler} visible={this.props.selectedId != null} type='edit' color='secondary' />
+                    <CircleButton onClick={this.onAddButtonClick} visible={true} type='add' color='primary' />
                 </ButtonsBar>
             </Grid>
         )
@@ -58,7 +57,7 @@ const mapDispatchToProps = dispatch => {
         getServices: () => dispatch(serviceActions.getAll()),
         deleteService: (guid) => dispatch(serviceActions.deleteService(guid)),
         getServiceInfo: (guid) => dispatch(serviceActions.getServiceDetailsById(guid)),
-        resetForms : () => dispatch(serviceActions.resetForms())
+        resetForms: () => dispatch(serviceActions.resetForms())
     }
 }
 
