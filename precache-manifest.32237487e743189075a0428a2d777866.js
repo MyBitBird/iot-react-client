@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9ce334bacd19a2e247ae",
+    "revision": "84f29580f1a3db10fe12",
     "url": "/iot-react-client/static/css/main.4bc9b908.chunk.css"
   },
   {
-    "revision": "9ce334bacd19a2e247ae",
-    "url": "/iot-react-client/static/js/main.9ce334ba.chunk.js"
+    "revision": "84f29580f1a3db10fe12",
+    "url": "/iot-react-client/static/js/main.84f29580.chunk.js"
   },
   {
     "revision": "c85224991a94ef840446",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/iot-react-client/static/media/bitbird.b83e038b.png"
   },
   {
-    "revision": "7770e3d9907d2e74d2799153c85f9298",
+    "revision": "c71c331f0175f58146fa1f8dfb63ffbc",
     "url": "/iot-react-client/index.html"
   }
 ];
