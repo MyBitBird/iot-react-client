@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/iot-react-client/precache-manifest.1c0b7895f74bacbfe2ef7259d36f0b12.js"
+  "/iot-react-client/precache-manifest.f43b8c093ad97dc0576646036f056e61.js"
 );
 
 workbox.clientsClaim();
