@@ -18,10 +18,10 @@ class Report extends Component{
         return(
             <div className={classes.container} >
                 <Grid container spacing={32}>
-                    <Grid item xs={3}>
+                    <Grid item md={3} xs={12}>
                         <SimpleReport title='Simple Report' color='#00e5ff' name='SIMPLE_REPORT' />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item md={3} xs={12}>
                         <ReportItem disable title='Log Report' color='#ff3d00' name='LOG_REPORT' />
                     </Grid>
                 </Grid>
