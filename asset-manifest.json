@@ -1,7 +1,7 @@
 {
   "main.css": "/iot-react-client/static/css/main.4bc9b908.chunk.css",
-  "main.js": "/iot-react-client/static/js/main.73675bb5.chunk.js",
-  "main.js.map": "/iot-react-client/static/js/main.73675bb5.chunk.js.map",
+  "main.js": "/iot-react-client/static/js/main.d2cfd57b.chunk.js",
+  "main.js.map": "/iot-react-client/static/js/main.d2cfd57b.chunk.js.map",
   "static/js/1.c8522499.chunk.js": "/iot-react-client/static/js/1.c8522499.chunk.js",
   "static/js/1.c8522499.chunk.js.map": "/iot-react-client/static/js/1.c8522499.chunk.js.map",
   "runtime~main.js": "/iot-react-client/static/js/runtime~main.4dd8f025.js",
@@ -9,6 +9,6 @@
   "static/media/bitbird.png": "/iot-react-client/static/media/bitbird.b83e038b.png",
   "static/css/main.4bc9b908.chunk.css.map": "/iot-react-client/static/css/main.4bc9b908.chunk.css.map",
   "index.html": "/iot-react-client/index.html",
-  "precache-manifest.acfe9aaac1bf6e152938b1a57a2c863a.js": "/iot-react-client/precache-manifest.acfe9aaac1bf6e152938b1a57a2c863a.js",
+  "precache-manifest.0bfc22e566d85aa80d5166540c0612c3.js": "/iot-react-client/precache-manifest.0bfc22e566d85aa80d5166540c0612c3.js",
   "service-worker.js": "/iot-react-client/service-worker.js"
 }
