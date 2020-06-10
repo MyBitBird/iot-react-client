@@ -19,7 +19,7 @@ This project is a React client for [.Net core iot-webapi](https://github.com/MyB
 * Assign users(devices) to service
 
 # Live Demo
-This [Live Demo](https://mybitbird.github.io/iot-react-client/) with Mock APIs, is just built for an overview, authentication and reports are disabled and some unexpected errors may be seen.
+This [Live Demo](https://mybitbird.github.io/iot-react-client/) **with Mock APIs, is just built for an overview**, authentication and reports are disabled and some unexpected errors may be seen.
 
 # How to run
 1. Clone repo
