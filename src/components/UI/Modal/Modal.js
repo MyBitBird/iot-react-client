@@ -3,7 +3,7 @@ import { Modal, Paper } from '@material-ui/core';
 
 const MyModal = (props)=>{
     const style = {
-        width: '30%',
+        width: '25rem',
         height: '50%',
         margin: 'auto',
         position: 'absolute'
