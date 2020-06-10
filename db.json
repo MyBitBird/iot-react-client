@@ -1,7 +1,7 @@
 {
-  "users": [
+  "users": 
     {"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiVGVzdCBVc2VyIiwiU3RhdHVzIjoiMSIsIklEIjoiMjJmZTY2M2MtYzcyNC00NmM5LWJlNzEtMmZiYTU4NzNhZmY5IiwiZXhwIjoxNTM5MTE0NjY0LCJpc3MiOiJodHRwOi8vYml0YmlyZC5pci8iLCJhdWQiOiJodHRwOi8vYml0YmlyZC5pci8ifQ.wL1hj4ca2Q4M_jbauLwj9t_iA0385qLH6tOcTVW0IBo" }
-  ],
+  ,
   "Services": [
     { "id": "1", "title": "My Assume Service", "ServiceProperties": [{ "Id" : "2" , "Title":"date" , "code":"data"} , {"Id":"3" , "Title":"Latitude" , "Code":"lat"},{"Id":"4" , "Title":"Longitude" , "Code":"lng"}] }
   ]
