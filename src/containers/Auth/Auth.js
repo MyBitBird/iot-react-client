@@ -49,8 +49,8 @@ class Auth extends Component {
         return (
             <form onSubmit={event => this.onSubmit(event)}>
                 <Grid container className={classes.container} >
-                    <Grid xs={4} item />
-                    <Grid xs={4} item>
+                    <Grid md={4} xs={false} item />
+                    <Grid md={4} xs item>
                         <Paper className={classes.loginPanel}>
                             <Grid container>
                                 <Grid xs={12} item style={style} className={classes.loginHeader} />
@@ -77,7 +77,7 @@ class Auth extends Component {
                         </Paper>
                         <div className={classes.domainText}>BitBird</div>
                     </Grid>
-                    <Grid xs={4} item />
+                    <Grid md={4} xs={false} item />
                 </Grid>
             </form>
         )
