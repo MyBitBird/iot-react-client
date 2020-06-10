@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom'
 const ServiceInfo = (props) => {
 
     return (
-        <Grid xs={3} item >
+        <Grid xs={12} md={3} item >
             <Paper 
                 className={[classes.container, props.service.id === props.selectedId ? classes.selectedService : classes.notSelectedService].join(' ')}
                 onClick={()=>props.onSelectService(props.service.id)}>

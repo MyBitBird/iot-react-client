@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 
 const DeviceInfo = (props) => {
     return (
-        <Grid xs={3} item >
+        <Grid xs={12} md={3} item >
             <Paper  
                 className={[classes.container, props.device.id === props.selectedId ? classes.selectedDevice : classes.notSelectedDevice].join(' ')}
                 onClick={() => props.onSelectDevice(props.device.id)}>
